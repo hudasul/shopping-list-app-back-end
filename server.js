@@ -10,7 +10,7 @@ const itemRoutes = require('./routes/itemRoutes')
 dotenv.config()
 const app = express()
 
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect(process.env.MONGODB_URI)
 mongoose.connection.on('connected', ()=>{
     console.log('connected to mongoDB')
 })
