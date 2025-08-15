@@ -13,7 +13,23 @@ async function createItem (req,res){
 }
 
 
+async function showAllItems(req, res) {
+    try{
+        const allItems = await Item.find()
+        if (allItems.length){
+            res.status(200).json(allItems)
+        } else {
+            res.sendStatus(204)
+        }
+
+    }catch (err){
+        console.log(err)
+    }
+}
+
+
 
 module.exports = {
-    createItem
+    createItem,
+    showAllItems
 }
