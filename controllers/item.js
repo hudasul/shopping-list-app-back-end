@@ -55,11 +55,25 @@ async function deleteItem(req,res) {
     
 }
 
+async function updateItem(req, res) {
+    try{
+        const updatedItem= await Item.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            {new: true}
+        )
+         res.status(200).json(updatedItem)
 
+    }catch (err){
+        res.status(500).json({error: err.message})
+    }
+    
+}
 
 module.exports = {
     createItem,
     showAllItems,
     showItem,
-    deleteItem
+    deleteItem,
+    updateItem
 }
