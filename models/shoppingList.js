@@ -1,5 +1,6 @@
 const {Schema, model} = require('mongoose')
 
+
 const shoppingListSchema = new Schema ({
     name: {
         type: String,
@@ -8,13 +9,7 @@ const shoppingListSchema = new Schema ({
     date:{
         type: Date,
         required: true
-    },
-    listItems:[{
-        type: Mongoose.Schema.Types.ObjectId, 
-        ref: "Item"
-
-    }]
-
+    }
 })
 
 const shoppingList = model('shoppingList', shoppingListSchema)
