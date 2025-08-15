@@ -1,31 +1,31 @@
 const Item = require('../models/item')
 
-async function createItem (req,res){
-    try{
-        const createdItem = await Item.create(req.body)
-        res.status(201).json(createdItem)
+// async function createItem(req, res) {
+//   try {
+//     const { name, price, quantity, listId } = req.body
 
-    }catch (err) {
-        console.log(err)
-        res.status(500).json({error: err.message})
-    }
+//     const createdItem = await Item.create({ name, price, quantity, listId })
 
-}
+//     res.status(201).json(createdItem)
+//   } catch (err) {
+//     console.log(err)
+//     res.status(500).json({ error: err.message })
+//   }
+// }
 
+// async function showAllItems(req, res) {
+//     try{
+//         const allItems = await Item.find()
+//         if (allItems.length){
+//             res.status(200).json(allItems)
+//         } else {
+//             res.sendStatus(204)
+//         }
 
-async function showAllItems(req, res) {
-    try{
-        const allItems = await Item.find()
-        if (allItems.length){
-            res.status(200).json(allItems)
-        } else {
-            res.sendStatus(204)
-        }
-
-    }catch (err){
-        console.log(err)
-    }
-}
+//     }catch (err){
+//         console.log(err)
+//     }
+// }
 
 async function showItem(req,res) {
 
@@ -56,24 +56,22 @@ async function deleteItem(req,res) {
 }
 
 async function updateItem(req, res) {
-    try{
-        const updatedItem= await Item.findByIdAndUpdate(
-            req.params.id,
-            req.body,
-            {new: true}
-        )
-         res.status(200).json(updatedItem)
-
-    }catch (err){
-        res.status(500).json({error: err.message})
+  try {
+    const updatedItem = await Item.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    if (updatedItem) {
+      res.status(200).json(updatedItem)
+    } else {
+      res.sendStatus(404)
     }
-    
+  } catch (err) {
+    res.status(500).json({ error: err.message })
+  }
 }
 
 module.exports = {
-    createItem,
-    showAllItems,
+    
     showItem,
     deleteItem,
     updateItem
+    
 }
