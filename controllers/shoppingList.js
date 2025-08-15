@@ -37,7 +37,7 @@ async function showAllLists (req,res){
         res.status(500).json({error: error.message})
     }
 }
-
+// to edit the shopping list 
 async function updateList (req,res){
     try {
         const list = await shoppingList.findByIdAndUpdate(req.params.id, req.body, {new:true})
@@ -46,11 +46,11 @@ async function updateList (req,res){
         res.status(500).json({error:error.message})
     }
 }
-
+// to delete the shopping list
 async function deleteList (req,res){
     try {
         const deletedList = await shoppingList.findByIdAndDelete(req.params.id)
-        res.status(deleted)
+        res.status(deletedList)
     } catch (error) {
         res.status(500).json({error: error.message})
     }
