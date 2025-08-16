@@ -58,10 +58,14 @@ async function deleteList (req,res){
 
 async function addItemToList(req, res) {
   try {
-    const { id } = req.params
-    const { name, price, quantity } = req.body
+    const newItem = new Item({
+      name: req.body.name,
+      price: req.body.price,
+      quantity: req.body.quantity,
+      listId: req.params.id
+    })
 
-    const newItem = await Item.create({ name, price, quantity, listId: id })
+     await newItem.save()
 
     res.status(201).json(newItem)
   } catch (error) {
@@ -71,8 +75,7 @@ async function addItemToList(req, res) {
 
 async function getItemsForList(req, res) {
   try {
-    const { id } = req.params
-    const items = await Item.find({ listId: id })
+    const items = await Item.find({ listId: req.params.id })
 
     if (items.length) {
       res.status(200).json(items)
