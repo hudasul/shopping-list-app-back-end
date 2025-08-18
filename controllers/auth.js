@@ -1,9 +1,10 @@
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const User = require('../models/user')
+const dotenv = require('dotenv')
+dotenv.config()
 
-const SECRET = 'supersecret' // use process.env.SECRET in production
-
+const SECRET = process.env.SECRET 
 // POST /auth/register
 exports.register = async (req, res) => {
   try {
