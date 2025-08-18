@@ -4,7 +4,11 @@ const Item = require('../models/item')
 
 async function createList(req, res) {
   try {
-    const createdList = await shoppingList.create(req.body)
+    const createdList = await shoppingList.create({
+      name: req.body.name,
+      date: req.body.date,
+      creator: req.user.id 
+    })
     res.status(201).json(createdList)
   } catch (error) {
     res.status(500).json({ error: error.message })

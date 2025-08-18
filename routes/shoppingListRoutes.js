@@ -4,7 +4,7 @@ const router = express.Router()
 const secureRoute = require('../middleware/secureRoute')
 const shoppingListController = require('../controllers/shoppingList')
 
-router.post('/new', shoppingListController.createList)
+router.post('/new', secureRoute, shoppingListController.createList)
 router.get('/', secureRoute, shoppingListController.showAllLists)
 router.get('/:id', shoppingListController.showList)
 router.put('/:id', shoppingListController.updateList)
