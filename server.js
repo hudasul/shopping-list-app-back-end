@@ -6,6 +6,7 @@ const cors = require('cors')
 
 const shoppingListRoutes = require('./routes/shoppingListRoutes')
 const itemRoutes = require('./routes/itemRoutes')
+const authRoutes = require('./routes/authRoutes')
 
 dotenv.config()
 const app = express()
@@ -21,6 +22,7 @@ app.use(cors({origin: 'http://localhost:5173'}))
 app.use(express.json())
 app.use(logger('dev'))
 
+app.use('/auth', authRoutes)
 app.use('/shoppingList', shoppingListRoutes)
 app.use('/item', itemRoutes)
 
