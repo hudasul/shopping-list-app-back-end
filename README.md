@@ -1,5 +1,5 @@
-# /shoppingList-app-back-end
-s
+<h1>Shopping list application: back end </h1>
+
 Link to the front end: https://github.com/hudasul/shoppingList-app-front-end
 
 This is the back end of the shopping list app. this was done in collaboration with my partner in order to make the front end pages work.
