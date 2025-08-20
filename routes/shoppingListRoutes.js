@@ -1,15 +1,15 @@
-const express = require('express')
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
-const secureRoute = require('../middleware/secureRoute')
-const shoppingListController = require('../controllers/shoppingList')
+const secureRoute = require("../middleware/secureRoute");
+const shoppingListController = require("../controllers/shoppingList");
 
-router.post('/new', secureRoute, shoppingListController.createList)
-router.get('/', secureRoute, shoppingListController.showAllLists)
-router.get('/:id', shoppingListController.showList)
-router.put('/:id', shoppingListController.updateList)
-router.delete('/:id', shoppingListController.deleteList)
-router.post('/:id/item', shoppingListController.addItemToList)
-router.get('/:id/item', shoppingListController.getItemsForList)
+router.post("/new", secureRoute, shoppingListController.createList);
+router.get("/", secureRoute, shoppingListController.showAllLists);
+router.get("/:id", shoppingListController.showList);
+router.put("/:id", shoppingListController.updateList);
+router.delete("/:id", shoppingListController.deleteList);
+router.post("/:id/item", shoppingListController.addItemToList);
+router.get("/:id/item", shoppingListController.getItemsForList);
 
-module.exports = router
+module.exports = router;
