@@ -1,31 +1,29 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const dotenv = require('dotenv')
-const logger = require('morgan')
-const cors = require('cors')
+const express = require("express");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const logger = require("morgan");
+const cors = require("cors");
 
-const shoppingListRoutes = require('./routes/shoppingListRoutes')
-const itemRoutes = require('./routes/itemRoutes')
-const authRoutes = require('./routes/authRoutes')
+const shoppingListRoutes = require("./routes/shoppingListRoutes");
+const itemRoutes = require("./routes/itemRoutes");
+const authRoutes = require("./routes/authRoutes");
 
-dotenv.config()
-const app = express()
+dotenv.config();
+const app = express();
 
-mongoose.connect(process.env.MONGODB_URI)
-mongoose.connection.on('connected', ()=>{
-    console.log('connected to mongoDB')
-})
+mongoose.connect(process.env.MONGODB_URI);
+mongoose.connection.on("connected", () => {
+  console.log("connected to mongoDB");
+});
 
+app.use(cors({ origin: "http://localhost:5173" }));
+app.use(express.json());
+app.use(logger("dev"));
 
-
-app.use(cors({origin: 'http://localhost:5173'}))
-app.use(express.json())
-app.use(logger('dev'))
-
-app.use('/auth', authRoutes)
-app.use('/shoppingList', shoppingListRoutes)
-app.use('/item', itemRoutes)
+app.use("/auth", authRoutes);
+app.use("/shoppingList", shoppingListRoutes);
+app.use("/item", itemRoutes);
 
 app.listen(3000, () => {
-    console.log('App is listening!')
-})
+  console.log("App is listening!");
+});
