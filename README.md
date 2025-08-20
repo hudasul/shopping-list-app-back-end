@@ -1,16 +1,13 @@
 <h1>Shopping list application: back end </h1>
 
-Link to the front end: https://github.com/hudasul/shoppingList-app-front-end
+The front end of the apllication is <a href="https://github.com/hudasul/shopping-list-app-front-end">here</a>
 
 
-This is the back end of the shopping list app. this was done in collaboration with my partner in order to make the front end pages work.
-
-
-the back end was coded using express and mongo db to store the user, item and shopping list schemas in databases.
+This is the back end of the shopping list application,it was built with Express and Node.
 <br>
 
 
-## User routes 
+<h2>User Routes</h2>
 <table>
   <tr>
     <th>HTTP Method</th>
@@ -31,7 +28,7 @@ the back end was coded using express and mongo db to store the user, item and sh
 <br>
 
 
-## Shopping list routes 
+<h2>Shopping list routes</h2> 
 <table>
   <tr>
     <th>HTTP Method</th>
@@ -45,7 +42,7 @@ the back end was coded using express and mongo db to store the user, item and sh
   </tr>
   <tr>
     <td>GET</td>
-    <td>/shoppingList/</td>
+    <td>/shoppingList</td>
     <td>Show all shopping lists</td>
   </tr>
   <tr>
@@ -78,7 +75,7 @@ the back end was coded using express and mongo db to store the user, item and sh
 <br>
 
 
-## Item routes 
+<h2>Item routes</h2>>
 <table>
   <tr>
     <th>HTTP Method</th>
