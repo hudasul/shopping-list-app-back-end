@@ -18,7 +18,7 @@ module.exports = function secureRoute(req, res, next) {
     if (err) {
       return res.status(403).json({ message: 'Invalid token' })
     }
-    req.user = decoded // makes user ID available in req.user.id
+    req.user = decoded 
     next()
   })
 }

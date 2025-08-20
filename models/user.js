@@ -6,7 +6,6 @@ const userSchema = new mongoose.Schema({
   passwordHash: { type: String, required: true }
 })
 
-// helper method to compare passwords
 userSchema.methods.validatePassword = function (password) {
   return bcrypt.compare(password, this.passwordHash)
 }
